@@ -442,7 +442,7 @@
       function matriculaFn(mat){
       jQuery.ajax({
 method:'GET',
-url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/txtMatricula', //mudar aqui para a url que o gus te passou
+url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/mat', //mudar aqui para a url que o gus te passou
 async: true,
        crossDomain:true, //testa com false se der pau
 contentType: 'application/json;charset=utf-8',       
@@ -455,7 +455,7 @@ success: function(data)
         console.log(data); //exibe o retorno no console do navegador (f12)
       var dados = JSON.stringify(data);
       console.log(dados);
-      $("#IDDOCAMPO").val(data.AlgumaCoisa); //o data será um objeto com os dados nessa linha é o exemplo 
+      $("#empresa").val(data.empresa); //o data será um objeto com os dados nessa linha é o exemplo 
 
          },
 //error : function(xhr, status, error) {
