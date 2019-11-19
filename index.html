@@ -48,8 +48,10 @@ success: function(data)
       var dados = JSON.stringify(data);
       console.log(dados);
       $("#empresa").val(data.empresa); //o data será um objeto com os dados nessa linha é o exemplo 
-
-         },
+       },
+        beforeSend: function (xhr) {
+    xhr.setRequestHeader ("Authorization",  "Token e4b8860f456b3c98b9590250de0707560bda10b8";
+},
 //error : function(xhr, status, error) {
 // do stuff here
 //var data = jQuery.parseJSON(xhr.responseText);
