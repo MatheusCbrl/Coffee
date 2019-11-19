@@ -450,9 +450,6 @@ dataType: 'json',
 headers: {
       "Authorization": "Token e4b8860f456b3c98b9590250de0707560bda10b8" //pode validar com o gus se ele usou esse token no postman tb
  },
-options : { 
-           useSSL: true  //pode remover esse parâmetro se der pau tb (todo o option)
-        }, 
 success: function(data)
         { 
         console.log(data); //exibe o retorno no console do navegador (f12)
@@ -463,7 +460,7 @@ success: function(data)
          },
 error : function(xhr, status, error) {
 // do stuff here
-var data = jQuery.parseJSON(xhr.responseText);
+var data = jQueryJSON(xhr.responseText);
 console.log(data); 
 }
     });
