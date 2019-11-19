@@ -29,20 +29,25 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  
   <script type="text/javascript">
-  function matriculaFn(mat){
-      $.ajax({
-method:'GET',
-url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/'+mat+'', //mudar aqui para a url que o gus te passou
-async: true,
+function matriculaFn(mat){
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Accept', 'application/json');
+  headers.append('Access-Control-Allow-Origin', 'https://marcocoffee.netlify.com');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  headers.append('GET', 'POST', 'OPTIONS');
+  headers.append('Authorization', 'Token e4b8860f456b3c98b9590250de0707560bda10b8';
+   $.ajax({
+        method:'GET',
+        url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/'+mat+'', //mudar aqui para a url que o gus te passou
+   async: true,
        crossDomain:false, //testa com false se der pau
-contentType: 'application/json;charset=utf-8',       
-dataType: 'json',       
-headers: {
-      "Authorization": localStorage.getItem('Token e4b8860f456b3c98b9590250de0707560bda10b8') //pode validar com o gus se ele usou esse token no postman tb
- },
-   options : { 
-       useSSL: true  //pode remover esse parâmetro se der pau tb (todo o option)
-   }, 
+       contentType: 'application/json;charset=utf-8',       
+       dataType: 'json',       
+       headers: headers
+       options : { 
+         useSSL: true  //pode remover esse parâmetro se der pau tb (todo o option)
+        }, 
 success: function(data)
         { 
         console.log(data); //exibe o retorno no console do navegador (f12)
@@ -56,7 +61,6 @@ success: function(data)
 //console.log(data);
 //}
  });
-};
   </script>
 <html lang="en"><head>
 
