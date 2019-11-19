@@ -32,7 +32,7 @@
       $.ajax({
 method:'GET',
 url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/'+mat+'', //mudar aqui para a url que o gus te passou
-async: false,
+async: true,
        crossDomain:false, //testa com false se der pau
 contentType: 'application/json;charset=utf-8',       
 dataType: 'json',       
@@ -49,9 +49,6 @@ success: function(data)
       console.log(dados);
       $("#empresa").val(data.empresa); //o data será um objeto com os dados nessa linha é o exemplo 
        },
-        beforeSend: function (xhr) {
-    xhr.setRequestHeader ("Authorization",  "Token e4b8860f456b3c98b9590250de0707560bda10b8";
-},
 //error : function(xhr, status, error) {
 // do stuff here
 //var data = jQuery.parseJSON(xhr.responseText);
