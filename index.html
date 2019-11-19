@@ -41,7 +41,7 @@ headers: {
       "Authorization": "Token e4b8860f456b3c98b9590250de0707560bda10b8" //pode validar com o gus se ele usou esse token no postman tb
  },
    options : { 
-       useSSL: false  //pode remover esse parâmetro se der pau tb (todo o option)
+       useSSL: true  //pode remover esse parâmetro se der pau tb (todo o option)
    }, 
 success: function(data)
         { 
@@ -468,30 +468,7 @@ success: function(data)
     $("#mobileToggle").on('click', function(e) {
       e.preventDefault();
       $(".iframe-preview").addClass("iframe-preview-mobile");
-      
-      server {
-    server_name example.com;
 
-    location / {
-        if ($request_method = OPTIONS ) {
-            add_header Access-Control-Allow-Origin "*";
-            add_header Access-Control-Allow-Methods "GET, OPTIONS";
-            add_header Access-Control-Allow-Headers "Authorization";
-
-            # Not necessary
-            #            add_header Access-Control-Allow-Credentials "true";
-            #            add_header Content-Length 0;
-            #            add_header Content-Type text/plain;
-
-            return 200;
-        }
-
-        auth_basic "Restricted";
-        auth_basic_user_file /var/.htpasswd;
-
-        proxy_pass http://127.0.0.1:8100;
-    }
-}
     });
   </script>
 
