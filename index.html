@@ -55,7 +55,7 @@ success: function(data)
          },
 error : function(xhr, status, error) {
 // do stuff here
-var data = jQueryJSON(xhr.responseText);
+var data = jQuery.getJSON(xhr.responseText);
 console.log(data); 
 }
     });
