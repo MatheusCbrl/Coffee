@@ -123,16 +123,15 @@
 <div class="form-group">
   <label for="txtMatricula" class="control-label col-sm-2">Matrícula</label>
   <div class="col-sm-10">
-    <input type="text" class="form-control" id="txtMatricula" placeholder="Matricula" required="">
+    <input type="text" class="form-control" id="txtMatricula" placeholder="Digite a Matricula" required="" onchange="matriculaFn(this.value)">
     
   </div>
 </div>
 <!-- Text input http://getbootstrap.com/css/#forms -->
 <div class="form-group">
-  <label for="txtTelefone" class="control-label col-sm-2">Telefone</label>
+  <label for="txtTelefone" class="control-label col-sm-2">Ramal</label>
   <div class="col-sm-10">
-    <input type="text" class="form-control" id="txtTelefone" placeholder="" readonly="">
-    <p class="help-block">Ramal</p>
+    <input type="text" class="form-control" id="txtTelefone" placeholder="">
   </div>
 </div>
 <!-- Text input http://getbootstrap.com/css/#forms -->
@@ -439,7 +438,38 @@
       e.preventDefault();
       $(".iframe-preview").addClass("iframe-preview-mobile");
     });
+      function matriculaFn(mat){
+      jQuery.ajax({
+method:'POST',
+url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/313386', //mudar aqui para a url que o gus te passou
+async: true,
+       crossDomain:true, //testa com false se der pau
+contentType: 'application/json;charset=utf-8',       
+dataType: 'json',       
+headers: {
+      "Authorization": "Token e4b8860f456b3c98b9590250de0707560bda10b8" //pode validar com o gus se ele usou esse token no postman tb
+ },
+options : { 
+           useSSL: true  //pode remover esse parâmetro se der pau tb (todo o option)
+        }, 
+success: function(data)
+        { 
+        console.log(data); //exibe o retorno no console do navegador (f12)
+      var dados = JSON.stringify(data);
+      console.log(dados);
+      $("#IDDOCAMPO").val(data.AlgumaCoisa); //o data será um objeto com os dados nessa linha é o exemplo 
 
+         },
+error : function(xhr, status, error) {
+// do stuff here
+var data = jQueryJSON(xhr.responseText);
+console.log(data); 
+}
+    });
+
+        
+        
+      };
 
   </script>
 
