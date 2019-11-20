@@ -36,12 +36,15 @@ method:'GET',
 
 url:'https://rhconnect.marcopolo.com.br/api/workers/data_employee/company/1/badge/'+mat+'', //mudar aqui para a url que o gus te passou
 async: true,
-       crossDomain:false, //testa com false se der pau
+       crossDomain:true, //testa com false se der pau
 contentType: 'application/json;charset=utf-8',       
 dataType: 'json',       
 headers: {
-      "Authorization": "Token xxxx THIS IS PRIVATExxxx" //pode validar com o gus se ele usou esse token no postman tb
+      "Authorization": "Token e4b8860f456b3c98b9590250de0707560bda10b8" //pode validar com o gus se ele usou esse token no postman tb
  },
+  xhrFields: {
+    withCredentials: true
+},
 options : { 
            useSSL: true  //pode remover esse parâmetro se der pau tb (todo o option)
         }, 
